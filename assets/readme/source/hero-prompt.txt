@@ -1,0 +1,7 @@
+Asset type: transparent cutout subject for a GitHub README hero (editorial policy monitoring & archival dossier workflow).
+Subject: A minimalist, tactile editorial illustration of a neatly stacked set of warm cream archival paper dossiers and index cards bound with a thin charcoal clip, accompanied by a clean wooden-and-brass rectangular verification stamp resting next to a subtle cinnabar-red wax/ink seal mark. No text, no letters, no numbers, no logos.
+Composition/framing: Three-quarter slightly elevated isometric view, centered with generous padding (at least 15% margin on all sides so nothing touches the image edges), facing slightly toward the left so it balances a left-aligned title block.
+Style: Crisp modern editorial vector-painted illustration with subtle paper grain and clean hard edges suitable for chroma-key cutout.
+Color palette: Warm vellum cream (#FBF8F2), archival stone (#E5DFD3), deep charcoal ink (#14161A), warm brass (#C29B61), and cinnabar vermilion (#B5472E). Do NOT use bright green anywhere in the subject.
+Constraints: One isolated cohesive cluster; no text, no letters, no symbols/characters, no logo, no watermark, no drop shadow onto the floor, no floor plane.
+Background: Perfectly flat, uniform solid pure chroma-key green (#00FF00) with zero gradient, zero texture, zero floor, zero reflection, and zero cast shadow.

@@ -1,64 +1,64 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="Policy Monitor Workflow：信源、存档、索引、报告四段流水线">
+  <img src="./assets/readme/hero.png" width="100%" alt="政策监测工作流 Policy Monitor Workflow：抓信源、留快照、记变更、出草稿，把最终判断留给人">
 </p>
 
-# 政策监测 Workflow
+# 政策监测工作流
 
-**把每天翻政策网站，变成一条可复现的流水线。**
+每天手工刷各个政务或行业网站、摘重点、写周报，最麻烦的往往不是“抓不到”，而是过两周链接打不开了，或者记不清哪条发过、哪条正文改过。
 
-先接信源、存原文，再做索引、变更和报告草稿。脚本只做机械工作；相关性判断、优先级取舍和对外签发，留给人。
+这套脚本只用 Python 标准库就能跑通离线 Demo：先把信源抓下来、把原始 HTML 存好，再生成稳定的索引、变更流水和日/周/月报草稿。至于哪条政策真正跟业务有关、对外口径怎么写，全部留给人来拍板。
 
-`Python 3.10+` · `离线 demo` · `MIT / CC BY 4.0 / CC0`
+`Python 3.10+` · `零依赖离线 Demo` · `MIT / CC BY 4.0 / CC0`
 
-## 30 秒看到结果
+## 先跑一遍离线 Demo
 
-不需要安装依赖，不需要联网：
+不用装任何第三方库，也不用联网，直接跑：
 
 ```bash
 python scripts/run_pipeline.py --demo
 ```
 
-demo 会从 4 个本地 HTML 快照里采出 **8 条虚构条目**，生成：
+脚本会读取 4 份本地 HTML 快照、解析出 **8 条虚构条目**，在 `examples/outputs/` 下生成一套完整的文件：
 
 ```text
 examples/outputs/
-├── index.json          # 稳定读模型：标题、层级、类型、日期、摘要
-├── changes.csv         # 新增 / 更新 / 移除流水，Excel 可直接打开
-├── daily/2026-11-12.md # 1 页日报草稿
-├── weekly/2026-W46.md  # 3–5 条信号 + 截止日历
-├── monthly/2026-11.md  # 趋势 + 增量 + 下月建议
-└── workbench/          # 可直接接工作台的数据包
+├── index.json           # 整理好的条目总表（doc_id、标题、层级、类型、日期、摘要）
+├── changes.csv          # 新增 / 更新 / 下线记录，带 UTF-8 BOM，Excel 可直接打开
+├── daily/2026-11-12.md  # 1 页日报草稿
+├── weekly/2026-W46.md   # 周报草稿（3–5 条重点 + 截止日历）
+├── monthly/2026-11.md   # 月报草稿（月度趋势 + 增量汇总）
+└── workbench/           # 顺便导出给工作台前端用的数据包
 ```
 
-> demo 数据固定在 2026 年 11 月，所有人都能跑出同一份结果。换日期：`--date 2026-11-13`。
+> Demo 的样本时间固定在 2026 年 11 月，你在任何机器上跑出的结果都是一样的。想换个基准日期，可以加上 `--date 2026-11-13`。
 
-## 它解决的不是“抓取”，是“可复现”
-
-| 以前 | 现在 |
-|---|---|
-| 收藏夹里一堆链接，过两周就失效 | 信源 YAML + 原始 HTML 快照 |
-| 周报从零开始回忆“这周发生了什么” | 索引 + 变更流水 + 报告草稿 |
-| 只记得“好像发过”，找不到原文 | 每条都有 `source_url`、`content_hash`、`review.required` |
-| 抓到什么算什么 | 字段抽取带来源、置信度和 warnings |
-
-它**不是**政策数据库、不是自动签发系统、不是爬虫框架，也不替代原文。它只把“采集 → 存档 → 索引 → 变更 → 草稿”这一段做得可重复、可检查。
-
-## 一条流水线，四个停点
+## 整个流程怎么走
 
 <p align="center">
-  <img src="./assets/readme/pipeline.svg" width="100%" alt="四段流水线：信源、采集与存档、解析与索引、报告草稿；脚本在此停止，之后是人工复核与签发">
+  <img src="./assets/readme/pipeline.gif" width="100%" alt="四步流程：选定信源、存下原文、整理台账、拼出草稿，然后停在人工核校与签发边界前">
 </p>
 
-- **01 信源**：`sources/sources.example.yaml` 里有 11 个虚构源，覆盖 HTML、JSON、RSS、人工源。
-- **02 采集与存档**：列表、详情、原始 HTML、`raw.json`、`health.csv`；失败也留痕。
-- **03 解析与索引**：抽标题、正文、日期、文号、机构、截止日期；生成 `index.json` 和 `changes.csv`。
-- **04 报告草稿**：日报 1 页、周报 3–5 条信号、月报趋势 + 增量 + 建议。
+1. **选定信源**：[sources/sources.example.yaml](sources/sources.example.yaml) 里放了 11 个示例信源，覆盖常见的 HTML 列表页、JSON 接口、RSS 和人工补录源。
+2. **存下原文**：抓列表的同时把详情页原始 HTML、解析前的 `raw.json` 和抓取状态 `health.csv` 一起留下来。就算原网页过几天删了或改版了，手头依然有底稿。
+3. **整理台账**：抽取标题、发文字号、发文机构、发布日和申报截止日，写成 `index.json` 和 `changes.csv`，顺带标出抽取置信度和异常提示（warnings）。
+4. **拼出草稿**：按固定模板套出日报、周报和月报草稿。
 
-**脚本停在这里。** 之后是人工复核、判断和签发；AI 只在草稿阶段做初判，不自动对外发布。
+脚本走到这里就停了。后面的核对原文、判断相关性、改定稿件再对外发送，必须由人来完成；即使接了 AI 辅助初筛，也不会替人自动签发。
 
-## 输出长什么样
+## 和零散收藏夹有什么区别
 
-`index.json` 是给人和工作台读的稳定读模型，正文在 `items/` 里：
+| 以前的做法 | 跑完这套脚本后 |
+|---|---|
+| 浏览器收藏夹存一堆链接，过两周 404 | 每次采集都留了原始 HTML 快照，原链接失效也能查 |
+| 写周报前翻记录回忆“这周发了啥” | `changes.csv` 记清了新增和改动，草稿里直接列出截止日期 |
+| 只记得好像看过某份通知，找不到出处 | 每条自带 `source_url`、`content_hash` 和 `review.required` |
+| 抓回来的字段残缺不全还看不出来 | 抽取字段带来源、置信度和 warnings，方便重点复核 |
+
+它**不是**商用政策数据库，也不是通用爬虫框架，只负责把从采集到草稿这一段路走稳、走得可复现。
+
+## 生成的索引长什么样
+
+`index.json` 面向人和前端页面设计，正文内容拆在 `examples/items/` 下：
 
 ```json
 {
@@ -76,31 +76,28 @@ examples/outputs/
 }
 ```
 
-- `doc_id` 稳定：同一 URL 重跑不会变。
-- `review.required` 永远为 `true`：脚本不替人做相关性判断。
-- `changes.csv` 一行一次变化，带 UTF-8 BOM；适合做“本周新增/更新”时间线。
-- 三份报告都是 Markdown 草稿，可以直接复制到文档里改。
+同一个 URL 多次重跑，`doc_id` 不会变；`review.required` 默认永远是 `true`，提醒人不要跳过核验；`changes.csv` 每行记一次变化，适合拉出来看一周动态。
 
-## 接到你的工作台
+## 导出给工作台直接看
 
-输出特意按“壳读取”设计。跑完 demo 后：
+如果你不想只看纯文本文件，跑完 Demo 后再执行一句：
 
 ```bash
 python scripts/export_workbench.py
 ```
 
-会生成 `examples/outputs/workbench/`：`index.json`、`annotations.json`、`reports.json` 和 `items/<id>/content.md`。把它复制到 [agent-workbench-template](https://github.com/Fanghj256/agent-workbench-template) 的 `workbench/`，或让工作台把数据目录指向这里。
+它会在 `examples/outputs/workbench/` 生成配套工作台所需的 `index.json`、`annotations.json`、`reports.json` 和每篇正文的 `content.md`。把这一整份目录复制到 [agent-workbench-template](https://github.com/Fanghj256/agent-workbench-template) 的 `workbench/` 下，就能直接在侧栏界面里筛选、阅读和写批注。
 
-工作台只读生成物；人的判断写到覆盖层，不直接改 `index.json`。完整映射见 [docs/workflow.md](docs/workflow.md)。
+工作台只会读取这批生成物，人的研判结果写在单独的覆盖层里，下次重跑脚本导出时不会把写好的批注覆盖掉。字段对应关系见 [docs/workflow.md](docs/workflow.md)。
 
-## 换成你的领域
+## 换成你关注的网站
 
-- **换信源**：复制 `sources/sources.example.yaml` 为 `sources.local.yaml`，填 URL、选择器和关键词。
-- **换主题词**：改 `taxonomy`，只影响条目的主题标签，不影响是否抓取。
-- **换报告**：改 `templates/*.md` 的章节和文案；`report.py` 只替换占位符。
-- **换节奏**：日报/周报/月报的窗口在 `report.py` 的 `select_items`。
+- **改信源列表**：把 `sources/sources.example.yaml` 复制成 `sources/sources.local.yaml`，填上目标网址、CSS 选择器和关键词。
+- **改分类标签**：调整 `taxonomy` 里的主题词表，只会改变分类标签，不会漏抓页面。
+- **改报告样式**：直接编辑 `templates/*.md`，`report.py` 只做占位符替换。
+- **改时间窗口**：日报、周报、月报的统计范围都在 `report.py` 的 `select_items` 里。
 
-live 模式（需要 `requests` + `PyYAML`）：
+跑真实网站（live 模式）需要装 `requests` 和 `PyYAML`：
 
 ```bash
 cp sources/sources.example.yaml sources/sources.local.yaml
@@ -108,25 +105,24 @@ python -m pip install -r requirements.txt
 python scripts/run_pipeline.py --config sources/sources.local.yaml
 ```
 
-加一个源的最小步骤、选择器写法、健康检查和常见坑，见 [docs/sources.md](docs/sources.md)。完整数据契约见 [docs/architecture.md](docs/architecture.md)。
+新增信源的写法、健康检查和常见排错见 [docs/sources.md](docs/sources.md)，完整数据结构见 [docs/architecture.md](docs/architecture.md)。
 
-## 限制
+## 边界与限制
 
-- demo 是冻结的虚构数据，不代表任何真实政策或趋势。
-- live 选择器要按站点维护；页面改版、JS 渲染、登录、验证码、PDF/OCR 都不在默认范围内。
-- 日期、文号、截止日期是启发式抽取；报告里的每条都应回原文核验。
-- 没有数据库；`index.json` 适合几千条以内的个人/小团队监测，更大规模建议换 SQLite/Postgres，字段契约不变。
-- 不包含调度、发布、权限和审计；这些交给工作台或你的现有系统。
+- 仓库内置的 Demo 全部是虚构示例，不代表任何真实政策。
+- 跑真实站点需要自己维护页面选择器；遇到前端 JS 动态渲染、登录拦截、验证码或复杂 PDF 扫描件，默认脚本不处理。
+- 日期、文号、截止时间靠规则启发式抽取，写进正式材料前务必点开原文确认一遍。
+- 直接用 JSON 存索引，个人或小团队几千条规模足够轻快；再往上扩展建议把存储层换成 SQLite 或 Postgres，字段结构不用改。
+- 不含定时调度、消息推送和权限审计，这部分适合交给外部 cron 或已有工作流系统。
 
 ## 安全与许可
 
-- 安全策略、凭据处理、日志与数据保留：见 [SECURITY.md](SECURITY.md)。
-- 代码：MIT，见 [LICENSE](LICENSE)。
-- 文档、提示词、模板：CC BY 4.0，见 [LICENSE-docs](LICENSE-docs)。
-- 示例数据：CC0，见 [LICENSE-data](LICENSE-data)。
-- 真实信源页面的版权归原站点所有；采集和再利用前请确认站点条款、robots 约定和当地法律。
+- 凭据管理、日志脱敏与数据保留原则见 [SECURITY.md](SECURITY.md)。
+- 代码：MIT（[LICENSE](LICENSE)）
+- 文档、提示词与报告模板：CC BY 4.0（[LICENSE-docs](LICENSE-docs)）
+- 示例数据：CC0（[LICENSE-data](LICENSE-data)）
+- 抓下来的公开网页原文版权仍归原发布机构所有，使用和再分发前请确认对方站点条款、robots 约定和当地法规。
 
 ---
 
-*English: a local-first, source-first policy monitoring workflow. It fetches public listings, archives originals, builds an index and change log, and renders daily, weekly and monthly drafts. The demo is offline, uses fictional data, and needs only the Python standard library.*
-
+*English: a local-first, source-first policy monitoring workflow. It fetches public listings, archives original HTML snapshots, builds a stable index and change log, and drafts daily, weekly, and monthly reports while leaving final judgment to humans.*
