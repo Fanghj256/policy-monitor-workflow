@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 本地配置与凭据
+.env
+.env.*
+*.local.yaml
+sources/sources.local.yaml
+
+# 运行数据与产出（examples/ 下的演示成品除外）
+data/
+/outputs/
+logs/
+*.log
+*.bak
+content_cache.json
+05_归档/
+03_数据/全文存档/
+
+# 编辑器与系统文件
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini

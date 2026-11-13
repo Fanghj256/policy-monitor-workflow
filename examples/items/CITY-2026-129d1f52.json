@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "doc_id": "CITY-2026-129d1f52",
+  "title": "《示例市人工智能生成内容标识管理合规指引（征求意见稿）》要点解读",
+  "issuer": "示例市市场监督管理局",
+  "doc_number": "",
+  "level": "市级部门",
+  "type": "解读",
+  "subtype": "政策解读",
+  "themes": [
+    "人工智能",
+    "标准合规"
+  ],
+  "keywords": [
+    "人工智能",
+    "生成内容",
+    "合规",
+    "标识"
+  ],
+  "publish_date": "2026-11-12",
+  "effective_date": "",
+  "deadline": "",
+  "deadlines": [],
+  "status": "待研判",
+  "priority": 3,
+  "priority_reason": "解读类；市级部门",
+  "signal": "政策",
+  "summary": "为便于社会各界理解征求意见稿的主要内容，现就标识范围、平台责任和用户权益等要点作简要说明。",
+  "body": "一、起草背景\n随着人工智能生成内容在文本、图片、音频、视频等场景中的应用日益广泛，内容真实性和可追溯性受到关注。示例市市场监督管理局结合行业调研，起草了《示例市人工智能生成内容标识管理合规指引（征求意见稿）》。\n二、主要内容\n征求意见稿共五章，围绕适用范围、标识要求、平台责任、用户权益和监督管理作出规定。\n一是明确标识范围。对人工智能生成或者显著改变的内容，要求以显著方式添加标识。\n二是强化平台责任。平台应建立审核机制，对疑似人工智能生成内容进行提示和核验。\n三是保护用户权益。禁止利用人工智能生成内容冒充真实人物、事件或者官方信息。\n三、需要说明的问题\n（一）关于标识的技术方式。征求意见稿鼓励采用元数据、数字水印等技术，但不指定单一技术路线。\n（二）关于中小企业负担。将配套发布操作指引，降低合规成本。\n四、下一步安排\n示例市市场监督管理局将根据意见反馈情况修改完善，按程序发布实施。",
+  "source_url": "https://scj.example.gov.cn/zcjd/2026/11/12/item-002.html",
+  "source": {
+    "id": "demo-market-supervision",
+    "name": "示例市市场监督管理局",
+    "tier": "L1",
+    "level": "市级部门",
+    "department": "示例市市场监督管理局",
+    "signal": "政策",
+    "list_url": "https://scj.example.gov.cn/"
+  },
+  "first_seen": "2026-11-12",
+  "last_updated": "2026-11-12",
+  "parsed_at": "2026-11-12T18:00:00+08:00",
+  "content_hash": "1d599083aeda2a82a3c65c480ec882b683e377dc78f4dc135c7affe105b6da9f",
+  "extraction": {
+    "title_source": "选择器",
+    "date_source": "选择器",
+    "doc_number_source": "未识别",
+    "issuer_source": "选择器",
+    "summary_source": "选择器",
+    "body_source": ".article-body",
+    "body_chars": 396,
+    "html_available": true,
+    "confidence": "高",
+    "warnings": []
+  },
+  "review": {
+    "required": true,
+    "reasons": [
+      "解读不是原文，引用前需回源"
+    ],
+    "checked_by": "",
+    "checked_at": "",
+    "decision": "",
+    "notes": ""
+  },
+  "owner": "",
+  "tags": [],
+  "notes": ""
+}

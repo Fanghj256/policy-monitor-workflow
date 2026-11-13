@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "doc_id": "DIST-2026-89335a97",
+  "title": "示例区科技创新局关于印发《示例区具身智能应用场景“揭榜挂帅”项目申报指南》的通知",
+  "issuer": "示例区科技创新局",
+  "doc_number": "示例科〔2026〕9号",
+  "level": "区级",
+  "type": "申报",
+  "subtype": "申报指南",
+  "themes": [
+    "机器人",
+    "科技创新"
+  ],
+  "keywords": [
+    "机器人",
+    "具身智能",
+    "科技创新",
+    "成果转化"
+  ],
+  "publish_date": "2026-11-10",
+  "effective_date": "",
+  "deadline": "2026-11-30",
+  "deadlines": [
+    {
+      "date": "2026-11-30",
+      "context": "、场景说明、实施方案和经费预算。 五、时间安排 请申报单位于2026年11月30日前将纸质材料一式三份及电子版报送示例区科技创新局。逾期不再受理"
+    }
+  ],
+  "status": "待研判",
+  "priority": 5,
+  "priority_reason": "申报类；区级",
+  "signal": "政策",
+  "summary": "为加快具身智能技术在真实场景中的验证应用，现发布2026年度示例区具身智能应用场景“揭榜挂帅”项目申报指南。",
+  "body": "各有关单位：\n为加快具身智能技术在真实场景中的验证应用，现发布2026年度示例区具身智能应用场景“揭榜挂帅”项目申报指南。\n一、支持方向\n围绕智能装配、柔性搬运、质量检测、仓储物流、商业服务等场景，支持具身智能机器人整机、核心部件、运动控制、感知交互等技术的集成验证。\n二、申报主体\n由场景业主单位牵头，联合技术提供方组成揭榜联合体。牵头单位应在示例区依法登记，具备场景开放条件和安全管理能力。\n三、支持方式\n每个揭榜项目支持额度不超过项目总投入的30%，最高不超过200万元。项目周期原则上不超过18个月。\n四、申报要求\n（一）场景应真实存在，具有明确的验证指标和示范价值；\n（二）联合体应明确任务分工、知识产权归属和成果转化安排；\n（三）申报材料应包括项目申报书、场景说明、实施方案和经费预算。\n五、时间安排\n请申报单位于2026年11月30日前将纸质材料一式三份及电子版报送示例区科技创新局。逾期不再受理。\n六、受理窗口\n受理窗口：示例区政务服务中心科技创新服务窗口（仅作示例，不提供真实联系方式）。",
+  "source_url": "https://kj.example.gov.cn/sb/2026/11/10/item-001.html",
+  "source": {
+    "id": "demo-district-innovation",
+    "name": "示例区科技创新局",
+    "tier": "L1",
+    "level": "区级",
+    "department": "示例区科技创新局",
+    "signal": "政策",
+    "list_url": "https://kj.example.gov.cn/"
+  },
+  "first_seen": "2026-11-10",
+  "last_updated": "2026-11-12",
+  "parsed_at": "2026-11-12T18:00:00+08:00",
+  "content_hash": "4c41ac6c5d89d0d9c9fec4e701c7391cfa3b8a8822351c09482eeac9d517de97",
+  "extraction": {
+    "title_source": "选择器",
+    "date_source": "选择器",
+    "doc_number_source": "选择器",
+    "issuer_source": "选择器",
+    "summary_source": "选择器",
+    "body_source": ".article-body",
+    "body_chars": 453,
+    "html_available": true,
+    "confidence": "高",
+    "warnings": []
+  },
+  "review": {
+    "required": true,
+    "reasons": [
+      "核对申报对象、材料清单与截止时间"
+    ],
+    "checked_by": "",
+    "checked_at": "",
+    "decision": "",
+    "notes": ""
+  },
+  "owner": "",
+  "tags": [],
+  "notes": ""
+}

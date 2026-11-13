@@ -1,0 +1,8 @@
+# live 模式需要；离线 demo（python scripts/run_pipeline.py --demo）不需要安装任何依赖。
+#
+# 安装：
+#   python -m pip install -r requirements.txt
+#
+# 解析使用标准库 html.parser + 内置的轻量选择器，不依赖 BeautifulSoup / lxml。
+requests>=2.31,<3
+PyYAML>=6.0,<7

@@ -1,0 +1,157 @@
+{
+  "schema": "workbench-index/v1",
+  "generated_at": "2026-11-12",
+  "items": [
+    {
+      "id": "CITY-2026-47468c39",
+      "title": "关于开展2026年示例市“数据要素×智能制造”典型案例征集的通知",
+      "level": "示例部门",
+      "kind": "申报",
+      "issuer": "示例市经济和信息化局",
+      "doc_number": "示例经信〔2026〕45号",
+      "published_at": "2026-11-12",
+      "deadline": "2026-12-20",
+      "status": "待研判",
+      "priority": 5,
+      "themes": [
+        "智能制造",
+        "数据要素",
+        "科技创新"
+      ],
+      "summary": "为挖掘数据要素赋能制造业的典型做法，现开展2026年示例市“数据要素×智能制造”典型案例征集。",
+      "source_url": "https://jxj.example.gov.cn/zcwj/2026/11/12/item-002.html",
+      "content_path": "items/CITY-2026-47468c39/content.md"
+    },
+    {
+      "id": "CITY-2026-c9490d7c",
+      "title": "示例市人民政府关于印发《示例市公共数据授权运营管理办法（试行）》的通知",
+      "level": "示例市",
+      "kind": "原文",
+      "issuer": "示例市人民政府",
+      "doc_number": "示例市人民政府令〔2026〕7号",
+      "published_at": "2026-11-12",
+      "deadline": "",
+      "status": "待研判",
+      "priority": 4,
+      "themes": [
+        "数据要素",
+        "标准合规"
+      ],
+      "summary": "为规范公共数据授权运营，促进公共数据合规高效流通使用，根据有关法律法规，结合示例市实际，制定本办法。",
+      "source_url": "https://www.example.gov.cn/zhengce/2026/11/12/item-002.html",
+      "content_path": "items/CITY-2026-c9490d7c/content.md"
+    },
+    {
+      "id": "DIST-2026-6280636b",
+      "title": "示例区人民政府办公室关于印发《示例区支持科技型企业高质量发展若干措施》的通知",
+      "level": "示例区",
+      "kind": "原文",
+      "issuer": "示例区人民政府办公室",
+      "doc_number": "示例科规〔2026〕3号",
+      "published_at": "2026-11-12",
+      "deadline": "",
+      "status": "待研判",
+      "priority": 3,
+      "themes": [
+        "科技创新",
+        "人才"
+      ],
+      "summary": "为支持科技型企业做大做强，提升区域创新体系整体效能，制定本措施。",
+      "source_url": "https://kj.example.gov.cn/zcwj/2026/11/12/item-002.html",
+      "content_path": "items/DIST-2026-6280636b/content.md"
+    },
+    {
+      "id": "CITY-2026-129d1f52",
+      "title": "《示例市人工智能生成内容标识管理合规指引（征求意见稿）》要点解读",
+      "level": "示例部门",
+      "kind": "解读",
+      "issuer": "示例市市场监督管理局",
+      "doc_number": "",
+      "published_at": "2026-11-12",
+      "deadline": "",
+      "status": "待研判",
+      "priority": 3,
+      "themes": [
+        "人工智能",
+        "标准合规"
+      ],
+      "summary": "为便于社会各界理解征求意见稿的主要内容，现就标识范围、平台责任和用户权益等要点作简要说明。",
+      "source_url": "https://scj.example.gov.cn/zcjd/2026/11/12/item-002.html",
+      "content_path": "items/CITY-2026-129d1f52/content.md"
+    },
+    {
+      "id": "CITY-2026-23004e2d",
+      "title": "关于公开征求《示例市人工智能生成内容标识管理合规指引（征求意见稿）》意见的通知",
+      "level": "示例部门",
+      "kind": "原文",
+      "issuer": "示例市市场监督管理局",
+      "doc_number": "示例市监函〔2026〕31号",
+      "published_at": "2026-11-11",
+      "deadline": "2026-12-10",
+      "status": "待研判",
+      "priority": 5,
+      "themes": [
+        "人工智能",
+        "标准合规"
+      ],
+      "summary": "为规范人工智能生成内容标识活动，保护消费者合法权益，现就《示例市人工智能生成内容标识管理合规指引（征求意见稿）》公开征求意见。",
+      "source_url": "https://scj.example.gov.cn/zqyj/2026/11/11/item-001.html",
+      "content_path": "items/CITY-2026-23004e2d/content.md"
+    },
+    {
+      "id": "DIST-2026-89335a97",
+      "title": "示例区科技创新局关于印发《示例区具身智能应用场景“揭榜挂帅”项目申报指南》的通知",
+      "level": "示例区",
+      "kind": "申报",
+      "issuer": "示例区科技创新局",
+      "doc_number": "示例科〔2026〕9号",
+      "published_at": "2026-11-10",
+      "deadline": "2026-11-30",
+      "status": "待研判",
+      "priority": 5,
+      "themes": [
+        "机器人",
+        "科技创新"
+      ],
+      "summary": "为加快具身智能技术在真实场景中的验证应用，现发布2026年度示例区具身智能应用场景“揭榜挂帅”项目申报指南。",
+      "source_url": "https://kj.example.gov.cn/sb/2026/11/10/item-001.html",
+      "content_path": "items/DIST-2026-89335a97/content.md"
+    },
+    {
+      "id": "CITY-2026-57699d4f",
+      "title": "关于组织开展2026年度示例市智能工厂梯度培育申报工作的通知",
+      "level": "示例部门",
+      "kind": "申报",
+      "issuer": "示例市经济和信息化局",
+      "doc_number": "示例经信〔2026〕42号",
+      "published_at": "2026-11-09",
+      "deadline": "2026-12-05",
+      "status": "待研判",
+      "priority": 5,
+      "themes": [
+        "智能制造"
+      ],
+      "summary": "为加快推动制造业数字化转型，现组织开展2026年度示例市智能工厂梯度培育申报工作。",
+      "source_url": "https://jxj.example.gov.cn/zcwj/2026/11/09/item-001.html",
+      "content_path": "items/CITY-2026-57699d4f/content.md"
+    },
+    {
+      "id": "CITY-2026-d692d895",
+      "title": "示例市人民政府办公室关于印发《示例市推进智能制造场景开放若干措施》的通知",
+      "level": "示例市",
+      "kind": "原文",
+      "issuer": "示例市人民政府办公室",
+      "doc_number": "示府办〔2026〕18号",
+      "published_at": "2026-11-09",
+      "deadline": "2026-12-15",
+      "status": "待研判",
+      "priority": 4,
+      "themes": [
+        "智能制造"
+      ],
+      "summary": "为进一步开放智能制造应用场景，支持制造业企业、场景业主单位和解决方案服务商协同创新，制定本措施。",
+      "source_url": "https://www.example.gov.cn/zhengce/2026/11/09/item-001.html",
+      "content_path": "items/CITY-2026-d692d895/content.md"
+    }
+  ]
+}

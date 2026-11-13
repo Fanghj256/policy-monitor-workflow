@@ -1,0 +1,284 @@
+# 政策监测 workflow · 信源配置示例
+# ------------------------------------------------------------------
+# 全部域名、机构、文号均为虚构，仅用于演示字段和结构。
+# 正式使用时：
+#   1. 复制本文件为 sources/sources.local.yaml
+#   2. 按 docs/sources.md 修改 URL、选择器和关键词
+#   3. sources.local.yaml 已在 .gitignore 中，不要提交真实配置
+#
+# 字段说明见 docs/sources.md；type 支持 html / json / rss / manual / dead。
+# ------------------------------------------------------------------
+
+user_agent: "policy-monitor-workflow/1.0 (low-rate public-policy monitor)"
+
+defaults:
+  enabled: true
+  type: html
+  signal: 政策
+  source_tier: L1
+  max_items: 10
+  fetch_detail: true
+  delay: 0.8
+
+# 主题词表：主题名 -> 关键词列表。
+# 用于给条目打 themes 标签；不决定是否抓取（那由源级 keywords 决定）。
+taxonomy:
+  智能制造:
+    - 智能制造
+    - 智能工厂
+    - 工业互联网
+    - 数字化转型
+    - 技术改造
+    - 未来工厂
+  人工智能:
+    - 人工智能
+    - 大模型
+    - 生成式
+    - 智能体
+    - 算法
+    - AIGC
+    - 生成内容
+  数据要素:
+    - 数据要素
+    - 公共数据
+    - 数据授权
+    - 数据流通
+    - 数据资产
+    - 数据交易
+    - 语料
+  机器人:
+    - 机器人
+    - 具身智能
+    - 人形机器人
+    - 智能装备
+  科技创新:
+    - 科技创新
+    - 研发
+    - 成果转化
+    - 创新平台
+    - 实验室
+    - 科技计划
+  企业培育:
+    - 专精特新
+    - 小巨人
+    - 高新技术企业
+    - 科技型中小企业
+    - 企业培育
+    - 独角兽
+  人才:
+    - 人才
+    - 职称
+    - 落户
+    - 博士后
+    - 技能人才
+    - 引才
+  标准合规:
+    - 标准化
+    - 标准体系
+    - 团体标准
+    - 地方标准
+    - 认证
+    - 合规
+    - 标识
+    - 检验检测
+  规划:
+    - 规划
+    - 行动计划
+    - 三年行动
+    - 十五五
+    - 十四五
+
+sources:
+  # ================= 市级 =================
+  - id: demo-city-gov
+    name: 示例市人民政府
+    type: html
+    signal: 政策
+    level: 市级
+    department: 示例市人民政府办公室
+    source_tier: L1
+    list_url: https://www.example.gov.cn/zhengce/
+    link_pattern: '^/zhengce/20\d{2}/\d{2}/\d{2}/[0-9a-z-]+\.html$'
+    date_from_url: '/(\d{4})/(\d{2})/(\d{2})/'
+    body_selector: '.article-body'
+    date_selector: '.meta .publish-date'
+    date_meta: PubDate
+    doc_no_selector: '.meta .doc-number'
+    issuer_selector: '.meta .issuer'
+    summary_selector: '.lead'
+    keywords: ["智能制造", "数据", "人工智能", "机器人"]
+    max_items: 10
+    notes: "示例：市政府政策文件栏目。正式接入时替换为真实栏目和选择器。"
+
+  # ================= 市级部门 =================
+  - id: demo-economy-bureau
+    name: 示例市经济和信息化局
+    type: html
+    signal: 政策
+    level: 市级部门
+    department: 示例市经济和信息化局
+    source_tier: L1
+    list_url: https://jxj.example.gov.cn/zcwj/
+    link_pattern: '^/zcwj/20\d{2}/\d{2}/\d{2}/[0-9a-z-]+\.html$'
+    date_from_url: '/(\d{4})/(\d{2})/(\d{2})/'
+    body_selector: '.article-body'
+    date_selector: '.meta .publish-date'
+    doc_no_selector: '.meta .doc-number'
+    issuer_selector: '.meta .issuer'
+    summary_selector: '.lead'
+    keywords: ["智能工厂", "数据要素", "智能制造", "申报", "典型案例"]
+    notes: "示例：市级部门政策文件与申报通知。"
+
+  - id: demo-district-innovation
+    name: 示例区科技创新局
+    type: html
+    signal: 政策
+    level: 区级
+    department: 示例区科技创新局
+    source_tier: L1
+    list_url: https://kj.example.gov.cn/
+    link_pattern: '^/(sb|zcwj)/20\d{2}/\d{2}/\d{2}/[0-9a-z-]+\.html$'
+    date_from_url: '/(\d{4})/(\d{2})/(\d{2})/'
+    body_selector: '.article-body'
+    date_selector: '.meta .publish-date'
+    doc_no_selector: '.meta .doc-number'
+    issuer_selector: '.meta .issuer'
+    summary_selector: '.lead'
+    keywords: ["具身智能", "科技型企业", "申报", "揭榜挂帅"]
+    notes: "示例：区级申报指南与产业支持措施。"
+
+  - id: demo-market-supervision
+    name: 示例市市场监督管理局
+    type: html
+    signal: 政策
+    level: 市级部门
+    department: 示例市市场监督管理局
+    source_tier: L1
+    list_url: https://scj.example.gov.cn/
+    link_pattern: '^/(zqyj|zcjd)/20\d{2}/\d{2}/\d{2}/[0-9a-z-]+\.html$'
+    date_from_url: '/(\d{4})/(\d{2})/(\d{2})/'
+    body_selector: '.article-body'
+    date_selector: '.meta .publish-date'
+    doc_no_selector: '.meta .doc-number'
+    issuer_selector: '.meta .issuer'
+    summary_selector: '.lead'
+    keywords: ["人工智能", "标识", "征求意见", "解读", "合规"]
+    notes: "示例：征求意见稿与政策解读。"
+
+  # ================= JSON 接口 =================
+  - id: example-data-bureau
+    name: 示例市数据局
+    type: json
+    signal: 政策
+    level: 市级部门
+    department: 示例市数据局
+    source_tier: L1
+    api_url: https://data.example.gov.cn/api/policies
+    api_method: GET
+    api_params:
+      page: 1
+      size: 20
+    items_path: data.list
+    title_field: title
+    url_field: url
+    date_field: publish_date
+    summary_field: summary
+    department_field: department
+    doc_no_fields: [doc_prefix, doc_year, doc_no]
+    keywords: ["数据要素", "公共数据", "数据授权", "数据流通", "算力"]
+    max_items: 20
+    fetch_detail: true
+    body_selector: '.article-body'
+    date_selector: '.article-meta .date'
+    doc_no_selector: '.article-meta .doc-number'
+    notes: "示例：返回 data.list 的 JSON 接口；字段名按实际接口改。"
+
+  # ================= 市级部门（HTML，meta 日期） =================
+  - id: example-science-bureau
+    name: 示例市科学技术局
+    type: html
+    signal: 政策
+    level: 市级部门
+    department: 示例市科学技术局
+    source_tier: L1
+    list_url: https://st.example.gov.cn/tzgg/
+    link_pattern: '^/tzgg/20\d{2}/\d{2}/[0-9a-z-]+\.html$'
+    date_meta: PubDate
+    body_selector: '#content'
+    doc_no_selector: '.xxgk-meta .doc-number'
+    issuer_selector: '.xxgk-meta .issuer'
+    keywords: ["科技计划", "重点研发", "成果转化", "创新平台", "高新技术企业"]
+    notes: "示例：详情页日期在 meta PubDate，正文 #content。"
+
+  # ================= 园区 =================
+  - id: example-park
+    name: 示例园区管委会
+    type: html
+    signal: 政策
+    level: 园区
+    department: 示例园区管委会
+    source_tier: L2
+    list_url: https://park.example.org/notice/
+    link_pattern: '^/notice/20\d{2}/\d{2}/[0-9a-z-]+\.html$'
+    list_date_selector: '.date'
+    body_selector: '.notice-content'
+    keywords: ["申报", "补贴", "场景", "试点", "园区"]
+    fetch_detail: false
+    max_items: 10
+    notes: "示例：园区公告只抓标题和链接，正文人工打开；避免详情页 JS 渲染。"
+
+  # ================= 协会（默认关闭） =================
+  - id: example-association
+    name: 示例行业协会
+    type: html
+    enabled: false
+    signal: 政策
+    level: 协会
+    department: 示例行业协会
+    source_tier: L2
+    list_url: https://www.example.org/association/news/
+    link_pattern: '^/association/news/\d+\.html$'
+    body_selector: '.news-content'
+    keywords: ["团体标准", "行业自律", "会员", "培训"]
+    notes: "示例：协会网站结构常变，先保持关闭；确认条款和更新频率后再启用。"
+
+  # ================= 媒体（参考层） =================
+  - id: example-media
+    name: 示例产业观察
+    type: html
+    signal: 舆情
+    level: 媒体
+    department: 示例产业观察
+    source_tier: L3
+    list_url: https://www.example.org/industry/
+    link_pattern: '^/industry/\d{4}/\d{2}/[0-9a-z-]+\.html$'
+    list_date_selector: 'time'
+    body_selector: 'article'
+    keywords: ["人工智能", "机器人", "智能制造", "数据要素", "政策"]
+    max_items: 15
+    notes: "示例：媒体只做背景和线索，不作为唯一依据；报告里标 L3。"
+
+  # ================= RSS（研究通讯） =================
+  - id: example-research-rss
+    name: 示例政策研究通讯
+    type: rss
+    signal: 解读
+    level: 行业
+    department: 示例研究机构
+    source_tier: L3
+    list_url: https://www.example.org/feed.xml
+    keywords: ["政策", "监管", "产业", "数据", "人工智能"]
+    max_items: 20
+    fetch_detail: false
+    notes: "示例：RSS 只取标题、链接和摘要；需要全文时再开 fetch_detail。"
+
+  # ================= 人工源 =================
+  - id: example-manual-channel
+    name: 示例公众号（人工）
+    type: manual
+    enabled: false
+    signal: 舆情
+    level: 媒体
+    department: 示例行业媒体
+    source_tier: L3
+    notes: "示例：无稳定列表页或需要登录的渠道，人工转发到工作台；不要写自动化绕过。"

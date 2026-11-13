@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "doc_id": "DIST-2026-6280636b",
+  "title": "示例区人民政府办公室关于印发《示例区支持科技型企业高质量发展若干措施》的通知",
+  "issuer": "示例区人民政府办公室",
+  "doc_number": "示例科规〔2026〕3号",
+  "level": "区级",
+  "type": "政策",
+  "subtype": "措施",
+  "themes": [
+    "科技创新",
+    "人才"
+  ],
+  "keywords": [
+    "科技创新",
+    "研发",
+    "成果转化",
+    "创新平台",
+    "实验室",
+    "人才"
+  ],
+  "publish_date": "2026-11-12",
+  "effective_date": "2026-12-01",
+  "deadline": "",
+  "deadlines": [],
+  "status": "待研判",
+  "priority": 3,
+  "priority_reason": "政策类；区级",
+  "signal": "政策",
+  "summary": "为支持科技型企业做大做强，提升区域创新体系整体效能，制定本措施。",
+  "body": "各街道办事处、区政府各委、办、局，各有关单位：\n为支持科技型企业做大做强，提升区域创新体系整体效能，制定本措施。\n一、支持企业研发投入\n对年度研发投入达到一定强度的科技型企业，按照研发投入增量给予支持。支持资金用于研发活动、设备购置和人才引进。\n二、支持创新平台建设\n鼓励企业建设重点实验室、技术创新中心和概念验证平台。对经认定的平台，按照建设投入的一定比例给予支持。\n三、支持成果转化\n对企业承接高校院所科技成果并在本区转化的项目，给予概念验证、中试熟化和场景应用支持。\n四、支持企业融资\n发挥政府投资基金引导作用，带动社会资本投早、投小、投长期、投硬科技。支持银行机构开发适合科技型企业的信贷产品。\n五、支持人才发展\n对符合条件的科技型企业人才，在住房、子女入学、医疗服务等方面提供便利。具体办法由相关部门另行制定。\n六、组织实施\n本措施自2026年12月1日起施行，有效期三年。具体申报指南由示例区科技创新局另行发布。",
+  "source_url": "https://kj.example.gov.cn/zcwj/2026/11/12/item-002.html",
+  "source": {
+    "id": "demo-district-innovation",
+    "name": "示例区科技创新局",
+    "tier": "L1",
+    "level": "区级",
+    "department": "示例区科技创新局",
+    "signal": "政策",
+    "list_url": "https://kj.example.gov.cn/"
+  },
+  "first_seen": "2026-11-12",
+  "last_updated": "2026-11-12",
+  "parsed_at": "2026-11-12T18:00:00+08:00",
+  "content_hash": "d629388b23cbdd91decda3e151512d3e245101e6b9adc5a8cd8834bac03492c7",
+  "extraction": {
+    "title_source": "选择器",
+    "date_source": "选择器",
+    "doc_number_source": "选择器",
+    "issuer_source": "选择器",
+    "summary_source": "选择器",
+    "body_source": ".article-body",
+    "body_chars": 412,
+    "html_available": true,
+    "confidence": "高",
+    "warnings": []
+  },
+  "review": {
+    "required": true,
+    "reasons": [],
+    "checked_by": "",
+    "checked_at": "",
+    "decision": "",
+    "notes": ""
+  },
+  "owner": "",
+  "tags": [],
+  "notes": ""
+}
