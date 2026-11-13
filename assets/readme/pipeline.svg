@@ -1,4 +1,4 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
   <title id="title">Policy monitoring pipeline</title>
   <desc id="desc">Four stages: sources, fetch and archive, parse and index, report drafts. Scripts stop at evidence; human review and sign-off follow.</desc>
 

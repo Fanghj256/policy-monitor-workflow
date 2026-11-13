@@ -1,4 +1,4 @@
-﻿<p align="center">
+<p align="center">
   <img src="./assets/readme/hero.svg" width="100%" alt="Policy Monitor Workflow：信源、存档、索引、报告四段流水线">
 </p>
 

@@ -1,4 +1,4 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
   <title id="title">Policy Monitor Workflow</title>
   <desc id="desc">A source-first policy monitoring pipeline: sources, archive, index and changes, then daily weekly and monthly report drafts.</desc>
 
