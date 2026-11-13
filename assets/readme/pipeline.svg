@@ -1,0 +1,73 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Policy monitoring pipeline</title>
+  <desc id="desc">Four stages: sources, fetch and archive, parse and index, report drafts. Scripts stop at evidence; human review and sign-off follow.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B5472E"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="430" rx="26" fill="#F4F0E8"/>
+
+  <g id="header" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif">
+    <text x="64" y="54" font-size="28" font-weight="700" fill="#14161A">脚本停在这里，判断从这里开始。</text>
+    <text x="64" y="84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#7A7468">A source-first pipeline: fetch, archive, normalize, index, draft.</text>
+  </g>
+
+  <g id="stage-1" transform="translate(64 118)">
+    <rect width="232" height="190" rx="12" fill="#FBF8F2" stroke="#D8D1C4"/>
+    <text x="18" y="32" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#B5472E">01 / SOURCES</text>
+    <text x="18" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="24" font-weight="700" fill="#14161A">信源</text>
+    <text x="18" y="104" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">sources.yaml</text>
+    <text x="18" y="132" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">11 示例源</text>
+    <text x="18" y="160" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">list + detail selectors</text>
+  </g>
+
+  <g id="stage-2" transform="translate(344 118)">
+    <rect width="232" height="190" rx="12" fill="#FBF8F2" stroke="#D8D1C4"/>
+    <text x="18" y="32" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#B5472E">02 / FETCH + ARCHIVE</text>
+    <text x="18" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="24" font-weight="700" fill="#14161A">采集与存档</text>
+    <text x="18" y="104" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">raw HTML snapshot</text>
+    <text x="18" y="132" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">raw.json</text>
+    <text x="18" y="160" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">health.csv</text>
+  </g>
+
+  <g id="stage-3" transform="translate(624 118)">
+    <rect width="232" height="190" rx="12" fill="#FBF8F2" stroke="#D8D1C4"/>
+    <text x="18" y="32" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#B5472E">03 / PARSE + INDEX</text>
+    <text x="18" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="24" font-weight="700" fill="#14161A">解析与索引</text>
+    <text x="18" y="104" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">items/*.json</text>
+    <text x="18" y="132" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">index.json</text>
+    <text x="18" y="160" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">changes.csv</text>
+  </g>
+
+  <g id="stage-4" transform="translate(904 118)">
+    <rect width="232" height="190" rx="12" fill="#FBF8F2" stroke="#D8D1C4"/>
+    <text x="18" y="32" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#B5472E">04 / REPORTS</text>
+    <text x="18" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="24" font-weight="700" fill="#14161A">报告草稿</text>
+    <text x="18" y="104" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">daily / weekly</text>
+    <text x="18" y="132" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">monthly</text>
+    <text x="18" y="160" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#4A463F">Markdown drafts</text>
+  </g>
+
+  <g id="arrows" stroke="#B5472E" stroke-width="2" fill="none">
+    <line x1="300" y1="213" x2="334" y2="213" marker-end="url(#arrow)"/>
+    <line x1="580" y1="213" x2="614" y2="213" marker-end="url(#arrow)"/>
+    <line x1="860" y1="213" x2="894" y2="213" marker-end="url(#arrow)"/>
+  </g>
+
+  <g id="boundary">
+    <rect x="64" y="342" width="1072" height="52" rx="9" fill="#14161A"/>
+    <text x="88" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#F4F0E8">scripts stop here</text>
+    <line x1="280" y1="368" x2="520" y2="368" stroke="#B5472E" stroke-width="2"/>
+    <circle cx="280" cy="368" r="4" fill="#B5472E"/>
+    <circle cx="520" cy="368" r="4" fill="#B5472E"/>
+    <text x="548" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#F4F0E8">human review</text>
+    <text x="700" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#B5472E">sign-off</text>
+    <text x="850" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#A8A29A">not auto-published</text>
+  </g>
+
+  <text x="64" y="414" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#7A7468">每条都保留 source_url / content_hash / review.required；报告是草稿，不是结论。</text>
+</svg>
+
