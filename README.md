@@ -32,6 +32,19 @@ examples/outputs/
 
 > Demo 的样本时间固定在 2026 年 11 月，你在任何机器上跑出的结果都是一样的。想换个基准日期，可以加上 `--date 2026-11-13`。
 
+## 测试
+
+离线测试只用标准库：
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/run_pipeline.py --demo
+git diff --exit-code
+```
+
+第二条会重跑 demo；如果 `examples/outputs/` 有任何变化，说明代码或模板改动了输出，
+需要确认是有意更新，还是回归。CI 里也跑同一组检查。
+
 ## 整个流程怎么走
 
 <p align="center">
