@@ -82,6 +82,14 @@ def write_text(path: Path, text: str) -> None:
         fh.write(text)
 
 
+def load_index(path: Path, error: type[Exception], hint: str) -> dict[str, Any]:
+    """读取并校验 index.json；report 和 export 共用，避免两套判断。"""
+    data = read_json(path)
+    if not isinstance(data, dict) or not isinstance(data.get("items"), list):
+        raise error(f"index.json 不存在或格式不对：{rel_path(path)}\n{hint}")
+    return data
+
+
 def load_structured(path: Path) -> Any:
     """读取 JSON 或 YAML（YAML 仅在 live 模式需要）。"""
     path = Path(path)

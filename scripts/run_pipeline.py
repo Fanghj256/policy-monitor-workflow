@@ -43,6 +43,28 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def write_reports(result: dict, anchor: str, kind: str, out_dir: Path) -> list[Path]:
+    """按 kind 生成日/周/月报，demo 和 live 共用，避免两套逻辑漂移。"""
+    written: list[Path] = []
+    if kind in ("daily", "all"):
+        text, date = report_mod.render_daily(result, anchor)
+        path = out_dir / "daily" / f"{date}.md"
+        write_text(path, text)
+        written.append(path)
+    if kind in ("weekly", "all"):
+        text, label = report_mod.render_weekly(result, anchor)
+        path = out_dir / "weekly" / f"{label}.md"
+        write_text(path, text)
+        written.append(path)
+    if kind in ("monthly", "all"):
+        month = anchor[:7]
+        text, label = report_mod.render_monthly(result, month + "-01")
+        path = out_dir / "monthly" / f"{month}.md"
+        write_text(path, text)
+        written.append(path)
+    return written
+
+
 def run_demo(args: argparse.Namespace) -> int:
     as_of = as_of_iso(args.as_of or (args.date + "T18:00:00" if args.date else DEMO_AS_OF))
     anchor = parse_date(args.date or DEMO_DATE)
@@ -86,23 +108,7 @@ def run_demo(args: argparse.Namespace) -> int:
     )
 
     print("\n[4/4] 报告：按模板生成草稿")
-    written_reports = []
-    if args.kind in ("daily", "all"):
-        text, date = report_mod.render_daily(result, anchor)
-        path = out_dir / "daily" / f"{date}.md"
-        write_text(path, text)
-        written_reports.append(path)
-    if args.kind in ("weekly", "all"):
-        text, label = report_mod.render_weekly(result, anchor)
-        path = out_dir / "weekly" / f"{label}.md"
-        write_text(path, text)
-        written_reports.append(path)
-    if args.kind in ("monthly", "all"):
-        month = anchor[:7]
-        text, label = report_mod.render_monthly(result, month + "-01")
-        path = out_dir / "monthly" / f"{month}.md"
-        write_text(path, text)
-        written_reports.append(path)
+    written_reports = write_reports(result, anchor, args.kind, out_dir)
 
     print("\n完成：")
     print(f"  raw      {rel_path(raw_dir / 'raw.json')}")
@@ -158,23 +164,7 @@ def run_live(args: argparse.Namespace) -> int:
     )
 
     print("\n[4/4] 报告")
-    written_reports = []
-    if args.kind in ("daily", "all"):
-        text, date = report_mod.render_daily(result, anchor)
-        path = out_dir / "daily" / f"{date}.md"
-        write_text(path, text)
-        written_reports.append(path)
-    if args.kind in ("weekly", "all"):
-        text, label = report_mod.render_weekly(result, anchor)
-        path = out_dir / "weekly" / f"{label}.md"
-        write_text(path, text)
-        written_reports.append(path)
-    if args.kind in ("monthly", "all"):
-        month = anchor[:7]
-        text, label = report_mod.render_monthly(result, month + "-01")
-        path = out_dir / "monthly" / f"{month}.md"
-        write_text(path, text)
-        written_reports.append(path)
+    written_reports = write_reports(result, anchor, args.kind, out_dir)
 
     print("\n完成：")
     print(f"  raw      {rel_path(raw_dir / 'raw.json')}")

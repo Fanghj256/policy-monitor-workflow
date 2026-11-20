@@ -21,12 +21,12 @@ from common import (
     DEMO_DATE,
     ROOT,
     days_between,
+    load_index as load_index_common,
     md_link,
     month_of,
     month_range,
     parse_date,
     previous_month,
-    read_json,
     rel_path,
     table,
     truncate,
@@ -150,13 +150,9 @@ class ReportError(RuntimeError):
 # ---------------------------------------------------------------------------
 
 def load_index(path: Path) -> dict[str, Any]:
-    data = read_json(path)
-    if not isinstance(data, dict) or "items" not in data:
-        raise ReportError(
-            f"index.json 不存在或格式不对：{rel_path(path)}\n"
-            "先运行：python scripts/index.py --demo --fresh"
-        )
-    return data
+    return load_index_common(
+        path, ReportError, "先运行：python scripts/index.py --demo --fresh"
+    )
 
 
 def item_date(item: dict[str, Any]) -> str:

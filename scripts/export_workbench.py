@@ -27,6 +27,7 @@ from typing import Any
 
 from common import (
     ROOT,
+    load_index as load_index_common,
     normalize_space,
     parse_date,
     read_json,
@@ -92,13 +93,9 @@ class ExportError(RuntimeError):
 # ---------------------------------------------------------------------------
 
 def load_index(path: Path) -> dict[str, Any]:
-    data = read_json(path)
-    if not isinstance(data, dict) or not isinstance(data.get("items"), list):
-        raise ExportError(
-            f"index.json 不存在或格式不对：{rel_path(path)}\n"
-            "先运行：python scripts/run_pipeline.py --demo"
-        )
-    return data
+    return load_index_common(
+        path, ExportError, "先运行：python scripts/run_pipeline.py --demo"
+    )
 
 
 def generated_date(index: dict[str, Any]) -> str:
